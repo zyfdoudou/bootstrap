@@ -400,7 +400,7 @@ These Sass loops aren't limited to color maps, either. You can also generate res
 
 {{< highlight scss >}}
 @each $breakpoint in map-keys($grid-breakpoints) {
-  @include media-breakpoint-up($breakpoint) {
+  @include media-min($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
     .text#{$infix}-left   { text-align: left !important; }

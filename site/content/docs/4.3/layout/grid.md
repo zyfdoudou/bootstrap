@@ -377,7 +377,7 @@ You can also use the accompanying Sass mixin, `row-cols()`:
   @include row-cols(3);
 
   // Five columns from medium breakpoint up
-  @include media-breakpoint-up(md) {
+  @include media-min(md) {
     @include row-cols(5);
   }
 }
@@ -760,10 +760,10 @@ You can modify the variables to your own custom values, or just use the mixins w
 .example-content-main {
   @include make-col-ready();
 
-  @include media-breakpoint-up(sm) {
+  @include media-min(sm) {
     @include make-col(6);
   }
-  @include media-breakpoint-up(lg) {
+  @include media-min(lg) {
     @include make-col(8);
   }
 }
@@ -771,10 +771,10 @@ You can modify the variables to your own custom values, or just use the mixins w
 .example-content-secondary {
   @include make-col-ready();
 
-  @include media-breakpoint-up(sm) {
+  @include media-min(sm) {
     @include make-col(6);
   }
-  @include media-breakpoint-up(lg) {
+  @include media-min(lg) {
     @include make-col(4);
   }
 }

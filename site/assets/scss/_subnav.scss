@@ -17,7 +17,7 @@
     background: escape-svg($dropdown-active-icon) no-repeat .4rem .6rem/.75rem .75rem;
   }
 
-  @include media-breakpoint-up(md) {
+  @include media-min(md) {
     position: sticky;
     top: 0;
   }
@@ -26,7 +26,7 @@
 .bd-search {
   position: relative; // To contain the Algolia search
 
-  @include media-breakpoint-down(sm) {
+  @include media-max(md) {
     width: 100%;
   }
 

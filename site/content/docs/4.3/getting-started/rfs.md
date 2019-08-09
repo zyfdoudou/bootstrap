@@ -65,7 +65,7 @@ In this example, we use one of Bootstrap's built-in [responsive breakpoint mixin
 
 ```scss
 .selector {
-  @include media-breakpoint-down(lg) {
+  @include media-max(lg) {
      padding: rfs-fluid-value(2rem);
      font-size: rfs-fluid-value(1.125rem);
   }

@@ -20,7 +20,7 @@
       @extend .container-fluid;
     }
 
-    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+    @include media-min($breakpoint, $grid-breakpoints) {
       %responsive-container-#{$breakpoint} {
         max-width: $container-max-width;
       }

@@ -39,7 +39,7 @@
     max-width: 100%;
     margin-bottom: 1.5rem;
 
-    @include media-breakpoint-down(md) {
+    @include media-max(lg) {
       display: block;
       overflow-x: auto;
 

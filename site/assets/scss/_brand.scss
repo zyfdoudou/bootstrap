@@ -21,7 +21,7 @@
     border-top: 1px solid $white;
   }
 
-  @include media-breakpoint-up(md) {
+  @include media-min(md) {
     + .bd-brand-item {
       border-top: 0;
       border-left: 1px solid $white;
@@ -60,7 +60,7 @@
   margin-left: .25rem;
   @include border-radius();
 
-  @include media-breakpoint-up(md) {
+  @include media-min(md) {
     width: 6rem;
     height: 6rem;
   }

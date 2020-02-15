@@ -46,6 +46,7 @@ Changes to our source Sass files and compiled CSS.
 - The `media-breakpoint-between()` mixin is now renamed to `media-between()` and its second parameter also uses the breakpoint itself instead of the next breakpoint. Use `media-between(sm, lg)` instead of `media-breakpoint-between(sm, md)` to target viewports smaller between the `sm` and `lg` breakpoints.
 - The `media-breakpoint-only()` mixin is now renamed to `media-only()`.
 - The `media-breakpoint-up()` mixin is now renamed to `media-min()`.
+- Ditch the Sass map merges, which makes it easier to remove redundant values. Keep in mind you now have to define all values in the Sass maps like `$theme-colors`. Check out how to deal with Sass maps on the [theming documentation]({{< docsref "/getting-started/theming#maps-and-loops" >}}).
 
 ## JavaScript
 

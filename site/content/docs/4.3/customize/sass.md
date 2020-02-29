@@ -90,7 +90,7 @@ Bootstrap 4 includes a handful of Sass maps, key value pairs that make it easier
 
 As of Bootstrap 5, we [removed map merges](https://github.com/twbs/bootstrap/pull/28508) to have more control over removing redundant values.
 
-## Modify map
+### Modify map
 
 All variables in the `$theme-colors` map are defined as standalone variables. To modify an existing color in our `$theme-colors` map, add the following to your custom Sass file:
 
@@ -109,7 +109,7 @@ $theme-colors: (
 );
 {{< /highlight >}}
 
-## Add to map
+### Add to map
 
 To add a new color to `$theme-colors`, add the new key and value to the Sass map, bearing in mind not to remove existing colors. If you're adding multiple new colors, consider giving them a variable name, too.
 
@@ -124,7 +124,7 @@ $theme-colors: map-merge(
 );
 {{< /highlight >}}
 
-## Remove from map
+### Remove from map
 
 You have two options for removing items from a Sass map. To remove colors from `$theme-colors`, you can redefine the Sass map, or you can use Sass's `map-remove` function.
 

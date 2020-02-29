@@ -88,7 +88,7 @@ Repeat as necessary for any variable in Bootstrap, including the global options 
 
 Bootstrap 4 includes a handful of Sass maps, key value pairs that make it easier to generate families of related CSS. We use Sass maps for our colors, grid breakpoints, and more. Just like Sass variables, all Sass maps include the `!default` flag and can be overridden and extended.
 
-Some of our Sass maps are merged into empty ones by default. This is done to allow easy expansion of a given Sass map, but comes at the cost of making _removing_ items from a map slightly more difficult.
+As of Bootstrap 5, we [removed map merges](https://github.com/twbs/bootstrap/pull/28508) to have more control over removing redundant values.
 
 ## Modify map
 
@@ -104,23 +104,41 @@ Later on, theses variables are set in Bootstrap's `$theme-colors` map:
 {{< highlight scss >}}
 $theme-colors: (
   "primary": $primary,
-  "danger": $danger
+  "danger": $danger,
+  ...
 );
 {{< /highlight >}}
 
 ## Add to map
 
-To add a new color to `$theme-colors`, add the new key and value:
+To add a new color to `$theme-colors`, add the new key and value to the Sass map, bearing in mind not to remove existing colors. If you're adding multiple new colors, consider giving them a variable name, too.
 
 {{< highlight scss >}}
-$theme-colors: (
-  "custom-color": #900
+$custom-color: #900;
+
+$theme-colors: map-merge(
+  (
+    custom: $custom-color
+  ),
+  $theme-colors
 );
 {{< /highlight >}}
 
 ## Remove from map
 
-To remove colors from `$theme-colors`, or any other map, use `map-remove`. Be aware you must insert it between our requirements and options:
+You have two options for removing items from a Sass map. To remove colors from `$theme-colors`, you can redefine the Sass map, or you can use Sass's `map-remove` function.
+
+{{< highlight scss >}}
+$theme-colors: (
+  "primary":   $primary,
+  "secondary": $secondary,
+  "success":   $success,
+  "warning":   $warning,
+  "danger":    $danger
+);
+{{< /highlight >}}
+
+To use `map-remove`, you must place it between our required Sass imports and options:
 
 {{< highlight scss >}}
 // Required
@@ -134,7 +152,7 @@ $theme-colors: map-remove($theme-colors, "info", "light", "dark");
 @import "../node_modules/bootstrap/scss/root";
 @import "../node_modules/bootstrap/scss/reboot";
 @import "../node_modules/bootstrap/scss/type";
-...
+// etc
 {{< /highlight >}}
 
 ## Required keys

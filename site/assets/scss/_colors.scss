@@ -9,12 +9,6 @@
   }
 }
 
-@each $color, $value in $grays {
-  .swatch-#{$color} {
-    color: color-yiq($value);
-    background-color: #{$value};
-  }
-}
 
 // stylelint-disable declaration-block-single-line-max-declarations
 
@@ -117,3 +111,16 @@
 .bd-cyan-700 { color: color-yiq($cyan-700); background-color: $cyan-700; }
 .bd-cyan-800 { color: color-yiq($cyan-800); background-color: $cyan-800; }
 .bd-cyan-900 { color: color-yiq($cyan-900); background-color: $cyan-900; }
+
+.bd-gray-100 { color: color-yiq($gray-100); background-color: $gray-100; }
+.bd-gray-200 { color: color-yiq($gray-200); background-color: $gray-200; }
+.bd-gray-300 { color: color-yiq($gray-300); background-color: $gray-300; }
+.bd-gray-400 { color: color-yiq($gray-400); background-color: $gray-400; }
+.bd-gray-500 { color: color-yiq($gray-500); background-color: $gray-500; }
+.bd-gray-600 { color: color-yiq($gray-600); background-color: $gray-600; }
+.bd-gray-700 { color: color-yiq($gray-700); background-color: $gray-700; }
+.bd-gray-800 { color: color-yiq($gray-800); background-color: $gray-800; }
+.bd-gray-900 { color: color-yiq($gray-900); background-color: $gray-900; }
+
+.bd-white { color: color-yiq($white); background-color: $white; }
+.bd-black { color: color-yiq($black); background-color: $black; }

@@ -509,9 +509,12 @@ fieldset {
   border: 0; // 2
 }
 
-// 1. By using `float: left`, the legend will behave like a block element
+// 1. By using `float: left`, the legend will behave like a block element.
+//    This way the border of a fieldset wraps around the legend if present.
 // 2. Correct the color inheritance from `fieldset` elements in IE.
 // 3. Correct the text wrapping in Edge and IE.
+// 4. Fix wrapping bug.
+//    See https://github.com/twbs/bootstrap/issues/29712
 
 legend {
   float: left; // 1
@@ -523,6 +526,10 @@ legend {
   line-height: inherit;
   color: inherit; // 2
   white-space: normal; // 3
+  
+  + * {
+    clear: left; // 4
+  }
 }
 
 // Fix height of inputs with a type of datetime-local, date, month, week, or time

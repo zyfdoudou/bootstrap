@@ -13,7 +13,6 @@ import {
   getElementFromSelector,
   getTransitionDurationFromElement,
   isElement,
-  makeArray,
   reflow,
   typeCheckConfig
 } from './util/index'
@@ -80,16 +79,17 @@ class Collapse {
     this._isTransitioning = false
     this._element = element
     this._config = this._getConfig(config)
-    this._triggerArray = makeArray(SelectorEngine.find(
+    this._triggerArray = SelectorEngine.find(
       `${Selector.DATA_TOGGLE}[href="#${element.id}"],` +
       `${Selector.DATA_TOGGLE}[data-target="#${element.id}"]`
-    ))
+    )
 
-    const toggleList = makeArray(SelectorEngine.find(Selector.DATA_TOGGLE))
+    const toggleList = SelectorEngine.find(Selector.DATA_TOGGLE)
+
     for (let i = 0, len = toggleList.length; i < len; i++) {
       const elem = toggleList[i]
       const selector = getSelectorFromElement(elem)
-      const filterElement = makeArray(SelectorEngine.find(selector))
+      const filterElement = SelectorEngine.find(selector)
         .filter(foundElem => foundElem === element)
 
       if (selector !== null && filterElement.length) {
@@ -141,7 +141,7 @@ class Collapse {
     let activesData
 
     if (this._parent) {
-      actives = makeArray(SelectorEngine.find(Selector.ACTIVES, this._parent))
+      actives = SelectorEngine.find(Selector.ACTIVES, this._parent)
         .filter(elem => {
           if (typeof this._config.parent === 'string') {
             return elem.getAttribute('data-parent') === this._config.parent
@@ -315,7 +315,7 @@ class Collapse {
 
     const selector = `${Selector.DATA_TOGGLE}[data-parent="${parent}"]`
 
-    makeArray(SelectorEngine.find(selector, parent))
+    SelectorEngine.find(selector, parent)
       .forEach(element => {
         const selected = getElementFromSelector(element)
 
@@ -398,7 +398,7 @@ EventHandler.on(document, Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (
 
   const triggerData = Manipulator.getDataAttributes(this)
   const selector = getSelectorFromElement(this)
-  const selectorElements = makeArray(SelectorEngine.find(selector))
+  const selectorElements = SelectorEngine.find(selector)
 
   selectorElements.forEach(element => {
     const data = Data.getData(element, DATA_KEY)

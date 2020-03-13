@@ -9,7 +9,6 @@ import {
   getjQuery,
   getSelectorFromElement,
   getUID,
-  makeArray,
   typeCheckConfig
 } from './util/index'
 import Data from './dom/data'
@@ -124,7 +123,7 @@ class ScrollSpy {
 
     this._scrollHeight = this._getScrollHeight()
 
-    const targets = makeArray(SelectorEngine.find(this._selector))
+    const targets = SelectorEngine.find(this._selector)
 
     targets
       .map(element => {
@@ -294,7 +293,7 @@ class ScrollSpy {
   }
 
   _clear() {
-    makeArray(SelectorEngine.find(this._selector))
+    SelectorEngine.find(this._selector)
       .filter(node => node.classList.contains(ClassName.ACTIVE))
       .forEach(node => node.classList.remove(ClassName.ACTIVE))
   }
@@ -332,7 +331,7 @@ class ScrollSpy {
  */
 
 EventHandler.on(window, Event.LOAD_DATA_API, () => {
-  makeArray(SelectorEngine.find(Selector.DATA_SPY))
+  SelectorEngine.find(Selector.DATA_SPY)
     .forEach(spy => new ScrollSpy(spy, Manipulator.getDataAttributes(spy)))
 })
 

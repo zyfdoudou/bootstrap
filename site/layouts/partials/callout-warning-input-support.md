@@ -1,3 +1,3 @@
 ##### Date & color input support
 
-Keep in mind date inputs are [not fully supported](https://caniuse.com/#feat=input-datetime) by Internet Explorer and Safari. Color inputs also [lack support](https://caniuse.com/#feat=input-color) on Internet Explorer.
+Keep in mind date inputs are [not fully supported](https://caniuse.com/#feat=input-datetime) by all browsers, namely Safari.
